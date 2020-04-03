@@ -125,12 +125,12 @@
                     answers[index].style.backgroundColor = "black";
                     answers[index].style.opacity="0.6";
                 }
-                console.log("this is mobile" + window.innerWidth);
+                console.log(window.innerWidth);
                 } else if(window.innerWidth <= 1024) {
-                    console.log("this is tablet" + window.innerWidth);
+                    console.log(window.innerWidth);
                 }
                 else {
-                    console.log("this is pc" + window.innerWidth);
+                    console.log(window.innerWidth);
                     document.getElementById("background1").onmouseover = function() {timeoutQAOn("question1", "answer1")};
                     document.getElementById("background2").onmouseover = function() {timeoutQAOn("question2", "answer2")};
                     document.getElementById("background3").onmouseover = function() {timeoutQAOn("question3", "answer3")};
@@ -146,8 +146,7 @@
                         answerpart.style.display="block";
                         answerpart.style.backgroundColor = "black";
                         answerpart.style.opacity="0.6";
-                        console.log(question + " and " + answer + "showed");
-                    };   
+                    };
 
                     var timeoutQAOn = function(question, answer) {
                         var timer = setTimeout(togleQAOn, 350, question, answer);

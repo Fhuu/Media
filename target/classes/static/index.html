@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Media</title>
+        <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+        <script src="https://kit.fontawesome.com/d87539b983.js" crossorigin="anonymous"></script>
+        <style>
+            #background1{
+                background-image: url(./images/20200214_155512.jpg);
+            }
+
+            #background2{
+                background-image: url(./images/Screenshot_20200114-074720_YouTube.jpg);
+            }
+
+            #background3{
+                background-image: url(./images/IMG_20190703_102530.jpg);
+            }
+
+            #background4{
+                background-image: url(./images/Screenshot_20200114-074750_YouTube.jpg);
+            }
+
+            #background5{
+                background-image: url(./images/20200214_162816.jpg);
+            }
+
+
+        </style>
+    </head>
+    <body><!--
+        <h3 align="left" id="logo">LOGO</h3>-->
+        <div id="navbar">
+            <div id="menu-container" style="">
+                <div id="navigationlogin">
+                    <span id="login">LOGIN</span>
+                </div>
+                <div id="navigationmenu">
+                    <span id="menu">MENU</span>
+                </div>
+
+                <div id="login-container">
+                    <form id="login-form">
+                        <i class="far fa-window-close fa-lg" id="close-button" onclick="closeOverlay()"></i>
+                        <span>Username</span>
+                        <input type="text" id="username" placeholder="username">
+                        <span>Password</span>
+                        <input type="password" id="password" placeholder="password">
+                        <span class="register">Full Name</span>
+                        <input class="register" type="text" id="name" placeholder="Full Name">
+                        <br>
+                        <input class="register" type="button" value="register" onclick="create()">
+                        <input id="loginbutton" type="button" value="login" onclick="login()">
+                        <span id="registration"><span id="togle">HAVEN'T GOT AN ACCOUNT?  </span><a  onclick="register()" href="#registration"> Hier</a></span>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="explanation">
+            <div class="question" id="what">
+                <div id="background1" class="backgrounds">
+                    <a id="question1" class="questions" >What is Logo?</a>
+                    <span id="answer1" class="answers">Logo is a platform for people, to share what they know or read, and get the information verified, according to the source the information is coming from. Posted by people, verified by people.</span>
+                </div>
+            </div>
+            <div class="question" id = "why">
+                <div id="background2" class="backgrounds">
+                    <a id="question2" class="questions" >Why is Logo needed?</a>
+                    <span id="answer2" class="answers">Journalism these days, are only targeting views and ratings. Especially in digital media, where everything can be written freely but, sometimes with sided opinion which is really bad for the information itself. Logo itselfs also is an opinion of person who thinks that journalism has lost its purpose, which is to deliver the real and truthful information without spicing up.</span>
+                </div>
+            </div>
+            <div class="question" id = "who">
+                <div id="background3" class="backgrounds">
+                    <a class="questions" id="question3" >Who created Logo?</a>
+                    <span class="answers" id="answer3">Logo is created by a student, who is going hard against hoax in the digital media, and who has something against journalism these days, where rating is the most important thing instead of truthful information without any sided opinion.</span>
+                </div>
+            </div>
+            <div class="question" id ="when">
+                <div id="background4" class="backgrounds">
+                    <a class="questions" id="question4" >When is Logo created?</a>
+                    <span class="answers" id="answer4">Remember CoVid-19?? That is when Logo is first developed by a student in quarantine.</span>
+                </div>
+            </div>
+            <div class="question" id = "how">
+                <div id="background5" class="backgrounds">
+                    <a class="questions" id="question5" >How does Logo work?</a>
+                    <span class="answers" id="answer5">When a person shares an information on a thread, they are required to include the source they get the information from. From the source, people or reader has to vote, whether the particular post is legit or whether it is a hoax, of course not according to one's OPINION, but according to facts why the information is not legit with source.</span>
+                </div>
+            </div>
+        </div>
+        <p id="posts"></p>
+        <script src="./javascript/login.js"></script>
+        <script src="./javascript/loginUI.js"></script>
+        <script>
+            
+            window.onload = function() {
+                checkWindowSize();
+                startsAtTop();
+            }
+            
+            var startsAtTop = function () {
+                  window.scroll({
+                      top: 0,
+                      left: 0,
+                      behavior: 'smooth'
+                  });
+              };
+            
+            
+            window.onresize = function() {
+                checkWindowSize();
+            }
+            
+            function checkWindowSize() {
+                if(window.innerWidth <= 720) {
+                questions = document.getElementsByClassName("questions");
+                answers = document.getElementsByClassName("answers");
+                for (let index = 0; index < questions.length; index++) {
+                    questions[index].style.top = "10%";
+                    questions[index].style.backgroundColor = "black";
+                    questions[index].style.opacity="0.6";
+                    answers[index].style.display="block";
+                    answers[index].style.backgroundColor = "black";
+                    answers[index].style.opacity="0.6";
+                }
+                console.log("this is mobile" + window.innerWidth);
+                } else if(window.innerWidth <= 1024) {
+                    console.log("this is tablet" + window.innerWidth);
+                }
+                else {
+                    console.log("this is pc" + window.innerWidth);
+                    document.getElementById("background1").onmouseover = function() {timeoutQAOn("question1", "answer1")};
+                    document.getElementById("background2").onmouseover = function() {timeoutQAOn("question2", "answer2")};
+                    document.getElementById("background3").onmouseover = function() {timeoutQAOn("question3", "answer3")};
+                    document.getElementById("background4").onmouseover = function() {timeoutQAOn("question4", "answer4")};
+                    document.getElementById("background5").onmouseover = function() {timeoutQAOn("question5", "answer5")};
+
+                    var togleQAOn = function (question, answer) {
+                        let questionpart = document.getElementById(question);
+                        let answerpart = document.getElementById(answer);
+                        questionpart.style.top = "10%";
+                        questionpart.style.backgroundColor = "black";
+                        questionpart.style.opacity="0.6";
+                        answerpart.style.display="block";
+                        answerpart.style.backgroundColor = "black";
+                        answerpart.style.opacity="0.6";
+                        console.log(question + " and " + answer + "showed");
+                    };   
+
+                    var timeoutQAOn = function(question, answer) {
+                        var timer = setTimeout(togleQAOn, 350, question, answer);
+                    };
+                }
+            }
+            
+        </script>
+    </body>
+</html>

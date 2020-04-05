@@ -16,7 +16,7 @@ public class PostController {
 
     @GetMapping("/post/viewall")
     @ResponseBody
-    Iterable<Post> showPost () {
+    String showPost () {
         return postService.getAllPost();
     }
 

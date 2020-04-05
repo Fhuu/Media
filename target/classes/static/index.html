@@ -36,26 +36,30 @@
                 <div id="navigationlogin">
                     <span id="login">LOGIN</span>
                 </div>
-                <div id="navigationmenu">
-                    <span id="menu">MENU</span>
-                </div>
-
-                <div id="login-container">
-                    <form id="login-form">
-                        <i class="far fa-window-close fa-lg" id="close-button" onclick="closeOverlay()"></i>
-                        <span>Username</span>
-                        <input type="text" id="username" placeholder="username">
-                        <span>Password</span>
-                        <input type="password" id="password" placeholder="password">
-                        <span class="register">Full Name</span>
-                        <input class="register" type="text" id="name" placeholder="Full Name">
-                        <br>
-                        <input class="register" type="button" value="register" onclick="create()">
-                        <input id="loginbutton" type="button" value="login" onclick="login()">
-                        <span id="registration"><span id="togle">HAVEN'T GOT AN ACCOUNT?  </span><a  onclick="register()" href="#registration"> Hier</a></span>
-                    </form>
-                </div>
             </div>
+            <div >
+                <ul id="navigationmenu" style="display: none;">
+                    <li><a class="navigations" href="html/post.html">POST</a></li>
+                    <li><a class="navigations" href="">PROFILE</a></li>
+                    <li><a class="navigations" href="">CIRCLE</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="login-container">
+            <form id="login-form">
+                <i class="far fa-window-close fa-lg" id="close-button" onclick="closeOverlay()"></i>
+                <span>Username</span>
+                <input type="text" name="username" id="username" placeholder="username">
+                <span>Password</span>
+                <input type="password" id="password" placeholder="password">
+                <span class="register">Full Name</span>
+                <input class="register" type="text" id="name" placeholder="Full Name">
+                <br>
+                <input class="register" type="button" value="register" onclick="create()">
+                <input id="loginbutton" type="button" value="login" onclick="login()">
+                <span id="registration"><span id="togle">HAVEN'T GOT AN ACCOUNT?  </span><a  onclick="register()" href="#registration"> Hier</a></span>
+            </form>
         </div>
 
         <div id="explanation">

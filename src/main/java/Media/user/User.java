@@ -64,7 +64,6 @@ public class User {
     public String toString() {
         return "{" +
                 "\"username\" : \"" + username + '\"' +
-                ", \"password\" : \"" + password + '\"' +
                 ", \"name\" : \"" + name + '\"' +
                 '}';
     }

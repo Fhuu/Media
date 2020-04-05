@@ -22,8 +22,13 @@ public class PostService {
         return postRepository.findById(postId).get().getContent();
     }
 
-    Iterable<Post> getAllPost() {
-        return postRepository.findAll();
+    String getAllPost() {
+        Iterable<Post> posts = postRepository.findAll();
+        String result = "";
+        for(Post post : posts) {
+            result = result + post.toString();
+        }
+        return result;
     }
 
     String getPostByUsername(String username) {

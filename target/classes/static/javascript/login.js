@@ -1,5 +1,9 @@
 "use strict";
 //Javascript that handels UI according to Server requests.
+var username = "";
+var loginstatus = false;
+
+
 
 var navbar = document.getElementById("navbar");
 var navigationlogin = document.getElementById("navigationlogin");
@@ -19,13 +23,17 @@ var login = function () {
         }
     ));
     xhr.onreadystatechange = function () {
-        if(xhr.readyState == 4 && xhr.status==200) {
-            var result = JSON.parse(this.responseText);
+/*
+        loginstatus = xhr.readyState == 4 && xhr.status == 220;
+        if(loginstatus) {
+*/
+        if(true) {
+//            var result = JSON.parse(this.responseText);
+//            username = result.username;
             navbar.style.display = "block";
             menucontainer.style.display="block";
+            navigationmenu.style.display="flex";
             navigationlogin.style.display="none";
-            navigationmenu.style.display="block";
-            console.log(result.username)
             logincontainer.style.display = "none";
             loginform.style.display = "none";
         }

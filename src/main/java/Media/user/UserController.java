@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 @RestController
 @SuppressWarnings("unused")
 @RequestMapping("/user")
@@ -27,7 +30,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    String login(@RequestBody Login login) {
+    boolean login(@RequestBody Login login) {
         return userService.login(login.getUsername(), login.getPassword());
     }
 

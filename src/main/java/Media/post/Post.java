@@ -28,7 +28,7 @@ public class Post {
     }
 
     public Post(@JsonProperty("text") String text,
-    @JsonProperty("Media/user") User user) {
+    @JsonProperty("user") User user) {
         this.content = text;
         this.user = user;
     }
@@ -68,10 +68,10 @@ public class Post {
     @Override
     public String toString() {
         return "{" +
-                "postId=" + postId +
-                ", content='" + content + '\'' +
-                ", postTime=" + postTime +
-                ", user=" + user.getUsername() +
+                "\"postId\" : \"" + postId + '\"' +
+                ", \"content\" : \"" + content + '\"' +
+                ", \"postTime\" : \"" + postTime + '\"' +
+                ", \"username\" : \"" + user.getUsername() + '\"' +
                 '}';
     }
 }

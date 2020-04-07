@@ -1,6 +1,8 @@
 package Media.post;
 
 import Media.post.PostRepository;
+import Media.user.UserRepository;
+import Media.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -24,11 +26,11 @@ public class PostService {
 
     String getAllPost() {
         Iterable<Post> posts = postRepository.findAll();
-        String result = "";
+        String result = "[";
         for(Post post : posts) {
-            result = result + post.toString();
+            result = result + post.toString() + ", ";
         }
-        return result;
+        return result.substring(0, result.length()-2) + "]";
     }
 
     String getPostByUsername(String username) {
@@ -39,5 +41,9 @@ public class PostService {
             }
         }
         return result.substring(2,result.length());
+    }
+
+    void addPost(String content, String username) {
+        Post post = new Post(content,)
     }
 }

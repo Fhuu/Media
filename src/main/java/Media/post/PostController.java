@@ -1,7 +1,10 @@
 package Media.post;
 
 import Media.post.PostService;
+import Media.user.UserRepository;
+import Media.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,6 +15,11 @@ public class PostController {
     @Autowired
     public PostController(PostService postService) {
         this.postService = postService;
+    }
+
+    @PostMapping("/post/post")
+    public void post(String content, String username, @Autowired @Qualifier("UserRepository") UserRepository userRepository) {
+        postService.addPost(content, username, userRepository);
     }
 
     @GetMapping("/post/viewall")

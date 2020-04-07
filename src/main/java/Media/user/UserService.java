@@ -32,17 +32,23 @@ public class UserService {
         return "Account created, " + user.getUsername() + "! Please log in to try this website!";
     }
 
-    public String login(String username, String password) {
+    public boolean login(String username, String password) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        if(userRepository.findById(username).isPresent() &&
-                encoder.matches(password, userRepository.findById(username).get().getPassword())) {
-            return userRepository.findById(username).get().toString();
+        Optional<User> selectedUser = userRepository.findById(username);
+        if(selectedUser.isPresent() &&
+                encoder.matches(password, selectedUser.get().getPassword())) {
+
+            return true;
         }
-        return "USERNAME OR PASSWORD IS FALSE";
+        return false;
     }
 
     public boolean usernameExist(String username) {
         return userRepository.existsById(username);
+    }
+
+    public User getUser(String username) {
+        return userRepository.findById(username).get();
     }
 
 }

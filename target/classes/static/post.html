@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/d87539b983.js" crossorigin="anonymous"></script>
+    <title>Feed</title>
+    <style>
+        *{
+            font-size: 20px;
+        }
+        #navigationmenu{
+            display: flex;
+            background: white;
+            position: fixed;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            left: 0;
+            flex-direction: row;
+            bottom: 0;
+            z-index: 1;
+        }
+        #navigationmenu>li{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+            width: 25%;
+            padding: 10px 0;
+            background: rgba(123,123,123,0.7);
+        }
+        .navigations:hover{
+            animation-name: glowupnavigations;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+        .navigations{
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+            background: rgba(0,0,0,0);
+        }
+        @keyframes glowupnavigations{
+            50% {
+                color: rgba(69,69,69,0.7);
+            }
+            100% {
+                color: white;
+            }
+        }
+        #post-container{
+            position: absolute;
+            background: rgba(69,69,69,0.3);
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            left: 0;
+            top: 0;
+        }
+        .post{
+            display: flex;
+            flex-direction: column;
+            min-height: 150px;
+            height: auto;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .post:nth-child(odd){
+            background: rgba(128,128,128,0.1);
+        }
+        .post:nth-child(even){
+             background: rgba(64,64,64,0.2);
+         }
+        .username-holder{
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+        #write-container{
+            position: fixed;
+            bottom: 55px;
+            right: 10px;
+        }
+        #write-button{
+            background: rgba(128,128,128,0.8);
+            padding: 20px;
+            border-radius: 40px;
+            border: 2px solid rgba(30,30,30,0.3);
+            color: black;
+        }
+        #write-post-overlay{
+            display: none;
+            background: rgba(200,200,200,0.6);
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            
+        }
+        #write-post-container{
+            flex-direction: column;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+        }
+        
+        #write-post{
+            resize: none;
+            overflow: hidden;
+            height: 60vh;
+            width: 90vw;
+            outline: none;
+            background-color: rgba(130,130,130,0.7);
+            border: 2px solid rgba(130,130,130,0.9);
+            color: white;
+            border-radius: 25px;
+            border: none;
+            text-align: justify;
+            padding: 10px;
+        }
+        
+        #post-write{
+            text-align: center;
+            font-size: 15px;
+            width: 100px;
+            margin-top: 10%;
+            padding: 10px;
+            border-radius: 10px;
+            background: rgba(130,130,130,0.7);
+            border: 2px solid rgba(130,130,130,0.9);
+            border: none;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+<body>
+    <div style="margin: 0; padding: 0;">
+        <ul id="navigationmenu">
+            <li><a class="navigations" href="index.html">HO</a></li>
+            <li>
+                <a
+                    style="
+                    animation-name: glowupnavigations; animation-duration: 4s; animation-iteration-count: infinite;"
+                    class="navigations" href="post.html">PO
+                </a></li>
+            <li><a class="navigations" href="">CI</a></li>
+            <li><a class="navigations" href="">PR</a></li>
+        </ul>
+    </div>
+
+    <div id="post-container">
+        <div class="post">
+            <span class="username-holder">jacq</span>
+            <span class="content-holder">I just submitted my project!</span>
+        </div>
+        <div class="post">
+            <span class="username-holder">dirobaloska</span>
+            <span class="content-holder">I just bought a new shoes!!! The FOG Converse is really dope! LIKE IT!!</span>
+        </div>
+        <div class="post">
+            <span class="username-holder">ivanirwanto</span>
+            <span class="content-holder">Bingung mau main game apa bareng teman teman.. Ga ada game yang cocok sekarang ini.</span>
+        </div>
+        <div class="post">
+            <span class="username-holder">beaterthebetatester</span>
+            <span class="content-holder">Gw baru ngetes satu game sebagai beta tester, setelah release gw dapet
+                bonus weapon dan premium item lain. Eh malah player lain ngatain gw beater kek KIRITOD. Kan kampret!!
+            </span>
+        </div>
+        <div class="post">
+            <span class="username-holder">beaterthebetatester</span>
+            <span class="content-holder">Gw baru ngetes satu game sebagai beta tester, setelah release gw dapet
+                bonus weapon dan premium item lain. Eh malah player lain ngatain gw beater kek KIRITOD. Kan kampret!!
+            </span>
+        </div>
+    </div>
+        <div id="write-container"><i id="write-button" class="fas fa-pen"></i></div>
+        <div id="write-post-overlay">
+            <form id="write-post-container">
+                <textarea id="write-post"></textarea>
+                <input id="post-write" type="submit" value="PUBLISH">
+            </form>
+        </div>
+    <div style="height: 10px; background: rgba(0,0,0,0);"></div>
+    <script>
+        var username;
+        var loginStatus;
+        window.onload = function() {
+            username = sessionStorage.getItem("username");
+            loginStatus = sessionStorage.getItem("loginStatus");
+            console.log(username);
+            console.log(loginStatus);
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/post/viewall", true);
+            xhr.send();
+            xhr.onreadystatechange = function() {
+                if(xhr.readyState == 4 && xhr.status == 200) {
+                    console.log(this.responseText);
+                    var results= JSON.parse(this.responseText);
+                    let write = "";
+                    for(let index = 0; index < results.length; index++) {
+                        write = write + "<div class='post'>" +
+                            "<span class=\"username-holder\">" + results[index].username + "</span>" +
+                            "<span class=\"content-holder\">" + results[index].content + "</span>" +
+                            "</div>";
+                    }
+                    document.getElementById("post-container").innerHTML = document.getElementById("post-container").innerHTML + write;
+                 }
+            }
+        }
+        
+        document.getElementById("write-container").onclick = function() {
+            console.log("write button fired");
+            document.getElementById("post-container").style.filter="blur(8px)";
+            document.getElementById("write-container").style.filter="blur(8px)";
+            document.getElementById("write-post-overlay").style.display = "block";
+        }
+    </script>
+</body>
+</html>

@@ -43,7 +43,4 @@ public class PostService {
         return result.substring(2,result.length());
     }
 
-    void addPost(String content, String username) {
-        Post post = new Post(content,)
-    }
 }

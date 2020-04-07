@@ -17,10 +17,10 @@ public class PostController {
         this.postService = postService;
     }
 
-    @PostMapping("/post/post")
-    public void post(String content, String username, @Autowired @Qualifier("UserRepository") UserRepository userRepository) {
-        postService.addPost(content, username, userRepository);
-    }
+//    @PostMapping("/post/post")
+//    public void post(String content, String username, @Autowired @Qualifier("UserRepository") UserRepository userRepository) {
+//        postService.addPost(content, username, userRepository);
+//    }
 
     @GetMapping("/post/viewall")
     @ResponseBody

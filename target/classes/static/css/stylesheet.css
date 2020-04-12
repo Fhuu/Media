@@ -36,49 +36,6 @@ body{
     font-size: 24px;
 }
 
-#navigationmenu{
-    background: white;
-    position: fixed;
-    z-index: 1;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    flex-direction: row;
-    bottom: 0;
-}
-#navigationmenu>li{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-align: center;
-    width: 25%;
-    padding: 10px 0;
-    background: rgba(123,123,123,0.7);
-}
-
-/*.navigations:hover{*/
-/*    animation-name: glowupnavigations;*/
-/*    animation-duration: 4s;*/
-/*    animation-iteration-count: infinite;*/
-/*}*/
-
-.navigations{
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    padding: 10px;
-    background: rgba(0,0,0,0);
-}
-
-@keyframes glowupnavigations{
-    50% {
-        color: rgba(69,69,69,0.7);
-    }
-    100% {
-        color: white;
-    }
-}
-
 @keyframes glowup {
     50% {
         background: rgba(255,255,255,0.7);

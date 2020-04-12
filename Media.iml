@@ -7,7 +7,7 @@
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="Media" />
-          <factory-entry name="entityManagerFactory" value="6773718c-94f9-4225-a7e3-cf1110afc1c4" />
+          <factory-entry name="entityManagerFactory" value="5a14810b-c7a7-4ecd-bbc8-55a9412a3703" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>

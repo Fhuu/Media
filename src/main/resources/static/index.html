@@ -4,6 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Media</title>
         <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="css/navigationBar.css">
         <script src="https://kit.fontawesome.com/d87539b983.js" crossorigin="anonymous"></script>
         <style>
             #background1{
@@ -26,36 +27,54 @@
                 background-image: url(./images/20200214_162816.jpg);
             }
 
+            @keyframes glowupnavigations{
+                50% {
+                    color: rgba(69,69,69,0.7);
+                }
+                100% {
+                    color: white;
+                }
+            }
 
         </style>
     </head>
     <body><!--
         <h3 align="left" id="logo">LOGO</h3>-->
         <div id="navbar">
-            <div id="menu-container" style="">
+            <div id="menu-container">
                 <div id="navigationlogin">
                     <span id="login">LOGIN</span>
                 </div>
-                <div id="navigationmenu">
-                    <span id="menu">MENU</span>
-                </div>
-
-                <div id="login-container">
-                    <form id="login-form">
-                        <i class="far fa-window-close fa-lg" id="close-button" onclick="closeOverlay()"></i>
-                        <span>Username</span>
-                        <input type="text" id="username" placeholder="username">
-                        <span>Password</span>
-                        <input type="password" id="password" placeholder="password">
-                        <span class="register">Full Name</span>
-                        <input class="register" type="text" id="name" placeholder="Full Name">
-                        <br>
-                        <input class="register" type="button" value="register" onclick="create()">
-                        <input id="loginbutton" type="button" value="login" onclick="login()">
-                        <span id="registration"><span id="togle">HAVEN'T GOT AN ACCOUNT?  </span><a  onclick="register()" href="#registration"> Hier</a></span>
-                    </form>
-                </div>
             </div>
+            <div >
+                <ul id="navigationmenu" style="display: none;">
+                    <li>
+                        <a
+                                style="
+                    animation-name: glowupnavigations; animation-duration: 4s; animation-iteration-count: infinite;"
+                                class="navigations" href="#">HO
+                        </a></li>
+                    <li><a class="navigations" href="post.html">PO</a></li>
+                    <li><a class="navigations" href="">CI</a></li>
+                    <li><a class="navigations" href="">PR</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="login-container">
+            <form id="login-form">
+                <i class="far fa-window-close fa-lg" id="close-button" onclick="closeOverlay()"></i>
+                <span>Username</span>
+                <input type="text" name="username" id="username" placeholder="username">
+                <span>Password</span>
+                <input type="password" id="password" placeholder="password">
+                <span class="register">Full Name</span>
+                <input class="register" type="text" id="name" placeholder="Full Name">
+                <br>
+                <input class="register" type="button" value="register" onclick="create()">
+                <input id="loginbutton" type="button" value="login">
+                <span id="registration"><span id="togle">HAVEN'T GOT AN ACCOUNT?  </span><a  onclick="register()" href="#registration"> Hier</a></span>
+            </form>
         </div>
 
         <div id="explanation">
@@ -94,10 +113,22 @@
         <script src="./javascript/login.js"></script>
         <script src="./javascript/loginUI.js"></script>
         <script>
-            
             window.onload = function() {
                 checkWindowSize();
                 startsAtTop();
+                checkLogin();
+            }
+
+            var checkLogin = function() {
+                if(sessionStorage.getItem("loginStatus")) {
+                    document.getElementById("navigationmenu").style.display="flex";
+                    document.getElementById("login-container").style.display="none";
+                    document.getElementById("menu-container").style.display="none";
+                } else {
+                    document.getElementById("navigationmenu").style.display="none";
+                    document.getElementById("login-container").style.display="block";
+                    document.getElementById("menu-container").style.display="block";
+                }
             }
             
             var startsAtTop = function () {
@@ -153,7 +184,6 @@
                     };
                 }
             }
-            
         </script>
     </body>
 </html>

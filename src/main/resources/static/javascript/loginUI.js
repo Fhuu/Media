@@ -1,14 +1,12 @@
 "use strict";
 //Javascript file for UI solely on UI. Nothing to do with server.
 
-
 var navigationloginbutton = document.getElementById("navigationlogin");
-var registration = document.getElementById("registration");
 var registerForm = document.getElementsByClassName("register");
-var registrerTogle = document.getElementById("togle")
+var registrerTogle = document.getElementById("togle");
 var submitbutton = document.getElementById("loginbutton");
 var overlay = document.getElementById("login-container");
-var closebutton = document.getElementById("close-button");
+var navigationcontainer = document.getElementById("navigationcontainer");
 
 var register =  function (){
     if(registerForm[0].style.display == "block") {
@@ -35,4 +33,9 @@ var closeOverlay = function() {
 navigationloginbutton.onclick = function() {
     overlay.style.display="block";
     navigationloginbutton.style.display="none";
+}
+
+navigationmenu.onclick = function() {
+    navigationcontainer.style.display="block";
+    
 }

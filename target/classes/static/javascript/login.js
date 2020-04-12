@@ -19,7 +19,8 @@ document.getElementById("loginbutton").onclick = function() {
     }
     xhr.onreadystatechange = function () {
         let loginState = xhr.readyState == 4 & xhr.status == 200;
-        console.log(this.response)
+        console.log("The result is:");
+        console.log(this.response);
         if(loginState && this.responseText == "true") {
             sessionStorage.setItem("username", username);
             sessionStorage.setItem("loginStatus", true);

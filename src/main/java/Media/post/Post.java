@@ -67,6 +67,7 @@ public class Post {
 
     @Override
     public String toString() {
+        this.content = content.trim();
         return "{" +
                 "\"postId\" : \"" + postId + '\"' +
                 ", \"content\" : \"" + content + '\"' +

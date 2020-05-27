@@ -14,7 +14,7 @@ var loadPosts = function() {
     xhr.onreadystatechange = function() {
         if(xhr.readyState == 4 && xhr.status == 200) {
             console.log(this.responseText);
-            var results= JSON.parse(this.responseText);
+            let results= JSON.parse(JSON.stringify(this.responseText));
             let write = "";
             for(let index = 0; index < results.length; index++) {
                 write = write + "<div class='post'>" +
@@ -33,6 +33,7 @@ document.getElementById("post-write").onclick = function() {
     xhrPost.open("POST", "/post/add", true);
     xhrPost.setRequestHeader("Content-Type", "application/json;UTF-8");
     var content = document.getElementById("write-post").value;
+    content = content.trim();
     if(content.replace(/\s+/g,"") != "") {
         xhrPost.send(JSON.stringify(
             {
